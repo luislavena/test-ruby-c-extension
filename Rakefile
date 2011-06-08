@@ -18,14 +18,7 @@ Rake::ExtensionTask.new('testext', spec) do |ext|
   ext.cross_compile = true if RUBY_PLATFORM !~ /mswin|mingw/
 end
 
-# FIXME: Using Gem::PackageTask, generation of gems seems to break rake-compiler
-# Gem::PackageTask.new(spec) do |pkg|
-#   pkg.need_zip = false
-#   pkg.need_tar = false
-# end
-
-# Using old-school Rake::GemPackageTask seems to work
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
   pkg.need_zip = false
   pkg.need_tar = false
 end
