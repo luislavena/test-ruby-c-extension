@@ -3,6 +3,7 @@ require 'rake/extensiontask'
 
 spec = Gem::Specification.new do |s|
   s.name = "testext"
+  s.platform = Gem::Platform::RUBY
   s.version = "0.0.1"
   s.summary = "Test of Ruby C extensions"
   s.description = "A simple Ruby C extension that test rake-compiler building blocks"
