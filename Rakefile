@@ -9,6 +9,7 @@ spec = Gem::Specification.new do |s|
   s.description = "A simple Ruby C extension that test rake-compiler building blocks"
   s.author = "Luis Lavena"
   s.email = "luislavena@gmail.com"
+  s.license = "MIT"
   s.homepage = "http://github.com/luislavena/test-ruby-c-extension"
 
   s.files = FileList["ext/**/*.{c,rb}", "Rakefile"]
@@ -25,3 +26,5 @@ end
 task :test => [:compile] do
   ruby %q(-Ilib -rtestext -e "puts 'done'")
 end
+
+task :default => [:test, "native", :gem]
