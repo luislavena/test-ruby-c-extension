@@ -1,4 +1,5 @@
+*.bundle
+*.so
+Gemfile.lock
 pkg
 tmp
-*.so
-*.bundle
