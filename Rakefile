@@ -20,8 +20,6 @@ Rake::ExtensionTask.new('testext', spec) do |ext|
 end
 
 Gem::PackageTask.new(spec) do |pkg|
-  pkg.need_zip = false
-  pkg.need_tar = false
 end
 
 task :test => [:compile] do
