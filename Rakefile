@@ -18,6 +18,7 @@ end
 
 Rake::ExtensionTask.new('testext', spec) do |ext|
   ext.cross_compile = true if RUBY_PLATFORM !~ /mswin|mingw/
+  ext.cross_platform = ['x86-mingw32', 'x64-mingw32']
 end
 
 Gem::PackageTask.new(spec) do |pkg|
