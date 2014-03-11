@@ -1,0 +1,5 @@
+---
+image: ruby2.0.0
+script:
+  - bundle install
+  - bundle exec rake
