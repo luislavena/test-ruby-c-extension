@@ -1,0 +1,17 @@
+---
+version: "{build}"
+branches:
+  only:
+    - master
+clone_depth: 10
+install:
+  - ruby --version
+  - gem --version
+  - bundler --version
+  - bundle install
+build_script:
+  - rake native gem
+test_script:
+  - rake test
+artifacts:
+  - path: logs\*.gem
