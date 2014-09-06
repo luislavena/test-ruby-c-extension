@@ -14,4 +14,4 @@ build_script:
 test_script:
   - rake test
 artifacts:
-  - path: logs\*.gem
+  - path: pkg\*.gem
