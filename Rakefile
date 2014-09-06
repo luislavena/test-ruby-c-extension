@@ -1,6 +1,11 @@
 require "rubygems/package_task"
 require 'rake/extensiontask'
 
+# prepend DevKit into compilation phase
+if RUBY_PLATFORM =~ /mingw/
+  task :compile => [:devkit]
+end
+
 spec = Gem::Specification.load("testext.gemspec")
 
 Rake::ExtensionTask.new('testext', spec) do |ext|
@@ -9,6 +14,14 @@ Rake::ExtensionTask.new('testext', spec) do |ext|
 end
 
 Gem::PackageTask.new(spec) do |pkg|
+end
+
+task :devkit do
+  begin
+    require "devkit"
+  rescue LoadError => e
+    abort "Failed to activate RubyInstaller's DevKit required for compilation."
+  end
 end
 
 task :test => [:compile] do
