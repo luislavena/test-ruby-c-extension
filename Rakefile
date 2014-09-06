@@ -4,6 +4,7 @@ require 'rake/extensiontask'
 # prepend DevKit into compilation phase
 if RUBY_PLATFORM =~ /mingw/
   task :compile => [:devkit]
+  task :native  => [:devkit]
 end
 
 spec = Gem::Specification.load("testext.gemspec")
@@ -28,4 +29,4 @@ task :test => [:compile] do
   ruby %q(-Ilib -rtestext -e "puts 'done'")
 end
 
-task :default => [:test, "native", :gem]
+task :default => [:test, :native, :gem]
