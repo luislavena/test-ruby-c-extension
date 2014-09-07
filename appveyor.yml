@@ -5,6 +5,7 @@ branches:
     - master
 clone_depth: 10
 install:
+  - SET PATH=C:\Ruby%ruby_version%\bin;%PATH%
   - ruby --version
   - gem --version
   - bundler --version
@@ -15,3 +16,9 @@ test_script:
   - rake test
 artifacts:
   - path: pkg\*.gem
+
+environment:
+  matrix:
+    - ruby_version: "193"
+    - ruby_version: "200"
+    - ruby_version: "200-x64"
